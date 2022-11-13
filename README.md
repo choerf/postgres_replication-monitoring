@@ -31,10 +31,7 @@ We can check it with this command:</p>
 Link: http://localhost:9090/targets?search=
 
 <p>There we can check stutus if connection to instances are good</p>
-<img width="1440" alt="image" src="https://user-images.githubusercontent.com/73527990/201534824-510e0ec8-bdba-4ba2-a178-3f6a76448f1b.png">
-
-
-<h2>Grafana</h2>
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/73527990/201536449-25154754-6001-47c1-8abe-12d26d6a6b42.png">
 
 Link: http://localhost:3000/login
 
@@ -68,7 +65,7 @@ Password: <b>admin</b></p>
 
 
 <p>We will see dashboard with data</p>
-<img width="1427" alt="image" src="https://user-images.githubusercontent.com/73527990/201535836-0e68a7e4-42f1-4ec9-88d0-4031c9080dec.png">
+<img width="1364" alt="image" src="https://user-images.githubusercontent.com/73527990/201536421-9d392b2d-57d2-44d3-8f94-19f3bad7119e.png">
 
 
 <p>Also in the dashboard can be changed instance</p>
