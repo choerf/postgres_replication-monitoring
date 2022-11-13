@@ -18,7 +18,7 @@ Instances are created:<br>
 2. Enter in PostgreSQL Slave instance <code>docker exec -it postgresql-slave bash</code> and run this commands:
 <p><code>rm -rf /var/lib/postgresql/data/*</code></br>
 <code>su - postgres -c "pg_basebackup --host=postgresql-master --username=repluser --pgdata=/var/lib/postgresql/data --wal-method=stream --write-recovery-conf"</code></p>
-<p>Enter password: replpass</p>
+<p>Enter password: <b>replpass</b></p>
 <p>Then need to restart Slave instance <code>docker restart postgresql-slave</code> and we will have replication with Master database.
 We can check it with this command:</p>
 <p><code>docker exec -it postgresql-slave su - postgres -c "psql -c 'select * from pg_stat_wal_receiver;'"</code></p>
@@ -26,6 +26,52 @@ We can check it with this command:</p>
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/73527990/201532381-05093308-a906-4103-8a92-d7ce71ee2973.png">
 
 
-<p>Then lets start with Prometheus and Grafana</p>
+<h2>Prometheus</h2>
 
-Prometheus link: http://localhost:9090/targets?search=
+Link: http://localhost:9090/targets?search=
+
+<p>There we can check stutus if connection to instances are good</p>
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/73527990/201534824-510e0ec8-bdba-4ba2-a178-3f6a76448f1b.png">
+
+
+<h2>Grafana</h2>
+
+Link: http://localhost:3000/login
+
+<p>Login: <b>admin</b></br>
+Password: <b>admin</b></p>
+
+<img width="1436" alt="image" src="https://user-images.githubusercontent.com/73527990/201535010-38f17cb9-9df8-47e6-b8de-fe78a15598b3.png">
+
+
+<p>After successful login go to Configuration -> Data souces (http://localhost:3000/datasources)</p>
+
+
+<p>Then press Add data source and choose Prometheus</p>
+<img width="1349" alt="image" src="https://user-images.githubusercontent.com/73527990/201535158-fff06cd4-c34c-4beb-8568-cf1576c9a882.png">
+
+<p>Enter link to Prometheus: <b>http://prometheus:9090</b></p>
+<img width="1100" alt="image" src="https://user-images.githubusercontent.com/73527990/201535398-b75c6c9a-ecf1-48bc-8829-13d3d4833da3.png">
+
+
+<p>And press Save & Test</p>
+<img width="716" alt="image" src="https://user-images.githubusercontent.com/73527990/201535506-3080c6e1-fdca-4b86-862a-d67f78622028.png">
+
+
+<p>Then import Dashboard from Grafana - ID: <b>9628</b></p>
+<img width="228" alt="image" src="https://user-images.githubusercontent.com/73527990/201535575-ef504e6b-c302-4ebd-a198-699cd47080b7.png"><img width="650" alt="image" src="https://user-images.githubusercontent.com/73527990/201535588-170dc001-6697-43e0-9870-486eaa2114c7.png">
+
+
+<p>Select Prometheus</b></p>
+<img width="663" alt="image" src="https://user-images.githubusercontent.com/73527990/201535712-4cfc04d1-fdf2-4733-93b4-c1d75d8ac927.png">
+
+
+
+<p>We will see dashboard with data</p>
+<img width="1427" alt="image" src="https://user-images.githubusercontent.com/73527990/201535836-0e68a7e4-42f1-4ec9-88d0-4031c9080dec.png">
+
+
+<p>Also in the dashboard can be changed instance</p>
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/73527990/201536175-38c33774-d968-483c-88ba-84c9dcea57b0.png">
+
+
